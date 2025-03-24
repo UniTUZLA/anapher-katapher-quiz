@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anapher & Katapher Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f5;
+      padding: 2em;
+    }
+    .quiz-container {
+      background: white;
+      padding: 2em;
+      border-radius: 1em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .question {
+      margin-bottom: 1.5em;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    .feedback {
+      margin-top: 0.5em;
+      font-style: italic;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 0.5em;
+      cursor: pointer;
+      margin-top: 1em;
+      margin-right: 0.5em;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Online-Quiz: Anapher, Katapher & Bridging</h1>
+
+    <div class="question" id="q1">
+      <p>1. Welche Art von Bezug liegt hier vor?<br>
+      "Sandra ging nach Hause. <strong>Sie</strong> wollte nicht mehr diskutieren."</p>
+      <button onclick="checkAnswer('q1', 'Anapher')">Anapher</button>
+      <button onclick="checkAnswer('q1', 'Katapher')">Katapher</button>
+      <div class="feedback" id="f_q1"></div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. Welche Art von Bezug liegt hier vor?<br>
+      "<strong>Er</strong> war intelligent und mutig – <strong>der neue Lehrer</strong>."</p>
+      <button onclick="checkAnswer('q2', 'Anapher')">Anapher</button>
+      <button onclick="checkAnswer('q2', 'Katapher')">Katapher</button>
+      <div class="feedback" id="f_q2"></div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Was ist das Antezedens für das Pronomen <strong>sie</strong> in folgendem Satz?<br>
+      "Anna betrat das Zimmer. <strong>Sie</strong> wirkte nervös."</p>
+      <button onclick="checkAnswer('q3', 'Anna')">Anna</button>
+      <button onclick="checkAnswer('q3', 'Zimmer')">Zimmer</button>
+      <div class="feedback" id="f_q3"></div>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. Welche Art von Anapher liegt hier vor?<br>
+      "Sie betrat die Küche. <strong>Der Herd</strong> war noch warm."</p>
+      <button onclick="checkAnswer('q4', 'direkte Anapher')">direkte Anapher</button>
+      <button onclick="checkAnswer('q4', 'Bridging')">Bridging</button>
+      <div class="feedback" id="f_q4"></div>
+    </div>
+
+    <div class="question" id="q5">
+      <p>5. Was beschreibt der Begriff <strong>Antezedens</strong>?</p>
+      <button onclick="checkAnswer('q5', 'Bezugswort')">Bezugswort</button>
+      <button onclick="checkAnswer('q5', 'Nachfolgendes Wort')">Nachfolgendes Wort</button>
+      <div class="feedback" id="f_q5"></div>
+    </div>
+
+    <div class="question" id="q6">
+      <p>6. In welchem Beispiel liegt eine Katapher vor?</p>
+      <button onclick="checkAnswer('q6', 'Sie war sehr beliebt – Julia war klug und hilfsbereit.')">Sie war sehr beliebt – Julia war klug und hilfsbereit.</button>
+      <button onclick="checkAnswer('q6', 'Julia war klug und hilfsbereit. Sie war sehr beliebt.')">Julia war klug und hilfsbereit. Sie war sehr beliebt.</button>
+      <div class="feedback" id="f_q6"></div>
+    </div>
+
+    <div class="question" id="q7">
+      <p>7. Welche Rolle spielt das Weltwissen bei Bridging-Anaphern?</p>
+      <button onclick="checkAnswer('q7', 'Es stellt den Zusammenhang her.')">Es stellt den Zusammenhang her.</button>
+      <button onclick="checkAnswer('q7', 'Es ersetzt das Pronomen.')">Es ersetzt das Pronomen.</button>
+      <div class="feedback" id="f_q7"></div>
+    </div>
+
+    <div class="question" id="q8">
+      <p>8. Welcher Satz enthält KEINE Anapher?</p>
+      <button onclick="checkAnswer('q8', 'Lisa öffnete das Fenster. Es war kaputt.')">Lisa öffnete das Fenster. Es war kaputt.</button>
+      <button onclick="checkAnswer('q8', 'Er war nervös. Peter trat ein.')">Er war nervös. Peter trat ein.</button>
+      <div class="feedback" id="f_q8"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(qid, answer) {
+      const feedback = document.getElementById("f_" + qid);
+      let correct = {
+        q1: "Anapher",
+        q2: "Katapher",
+        q3: "Anna",
+        q4: "Bridging",
+        q5: "Bezugswort",
+        q6: "Sie war sehr beliebt – Julia war klug und hilfsbereit.",
+        q7: "Es stellt den Zusammenhang her.",
+        q8: "Er war nervös. Peter trat ein."
+      };
+
+      if (answer === correct[qid]) {
+        feedback.innerHTML = "✅ Richtig!";
+        feedback.style.color = "green";
+      } else {
+        feedback.innerHTML = "❌ Falsch. Richtige Antwort: " + correct[qid];
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
